@@ -14,7 +14,8 @@ You just need to clone the repository and run index.js
 git clone https://github.com/taigah/imgur-screen
 cd imgur-screen
 npm i
-node index.js
+chmod +x imgur-screen
+./imgur-screen
 ```
 
 # Using credentials
