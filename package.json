@@ -1,6 +1,6 @@
 {
   "name": "imgur-screen",
-  "version": "1.0.1",
+  "version": "1.2.0",
   "description": "Take a screenshot of your screen and upload it to imgur",
   "main": "index.js",
   "scripts": {
