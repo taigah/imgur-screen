@@ -1,28 +1,42 @@
+#!/usr/bin/env node
 'use strict'
 
+const fs = require('fs')
 const imgur = require('imgur')
 const exec = require('child_process').exec
 const opn = require('opn')
 const dialog = require('dialog')
 
-try {
-  const { username, password } = require('./credentials')
+function screen () {
+  let cp = exec('xfce4-screenshooter -r -o cat', { encoding: 'base64' }, (err, stdout, stderr) => {
+    if (err) {
+      console.error(err.stack)
+      process.exit()
+    }
+    imgur.uploadBase64(stdout)
+    .then((json) => {
+      opn(json.data.link)
+    })
+    .catch((err) => {
+      dialog.err(JSON.stringify(err), 'Upload failed')
+    })
+  })
+}
 
-  if (username && password) {
-    imgur.setCredentials(username, password)
-  }
-} catch(err) {}
+let credentials_path = process.env.HOME + '/.imgur-screen.json'
 
-let cp = exec('xfce4-screenshooter -r -o cat', { encoding: 'base64' }, (err, stdout, stderr) => {
+fs.access(credentials_path, (err) => {
   if (err) {
-    console.error(err.stack)
-    process.exit()
+    screen()
+  } else {
+    fs.readFile(credentials_path, (err, data) => {
+      if (err) {
+        console.error(err)
+        process.exit()
+      }
+      let { username, password } = JSON.parse(data.toString())
+      imgur.setCredentials(username, password)
+      screen()
+    })
   }
-  imgur.uploadBase64(stdout)
-  .then((json) => {
-    opn(json.data.link)
-  })
-  .catch((err) => {
-    dialog.err(JSON.stringify(err), 'Upload failed')
-  })
 })

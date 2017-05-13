@@ -19,6 +19,9 @@
   "bugs": {
     "url": "https://github.com/taigah/imgur-screen/issues"
   },
+  "bin": {
+    "imgur-screen": "./index.js"
+  },
   "homepage": "https://github.com/taigah/imgur-screen#readme",
   "dependencies": {
     "dialog": "^0.2.0",

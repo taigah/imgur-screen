@@ -11,11 +11,8 @@ You need xfce4-screenshooter to use imgur-screen
 You just need to clone the repository and run index.js
 
 ```bash
-git clone https://github.com/taigah/imgur-screen
-cd imgur-screen
-npm i
-chmod +x imgur-screen
-./imgur-screen
+npm i -g imgur-screen
+imgur-screen
 ```
 
 # Using credentials
@@ -23,8 +20,8 @@ chmod +x imgur-screen
 Create a credentials.js file and fill it with your credentials
 
 ```javascript
-// credentials.js
-module.exports = {
+// ~/.imgur-screen.json
+{
   "username": "foo",
   "password": "bar"
 }
