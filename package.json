@@ -1,0 +1,23 @@
+{
+  "name": "imgur-screen",
+  "version": "1.0.0",
+  "description": "Take a screenshot of your screen and upload it to imgur",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/taigah/imgur-screen.git"
+  },
+  "keywords": [
+    "screenshot",
+    "imgur"
+  ],
+  "author": "taigah.dev@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/taigah/imgur-screen/issues"
+  },
+  "homepage": "https://github.com/taigah/imgur-screen#readme"
+}
