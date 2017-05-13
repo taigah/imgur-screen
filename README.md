@@ -26,3 +26,11 @@ Create a credentials.js file and fill it with your credentials
   "password": "bar"
 }
 ```
+
+# Uploading to album
+
+You can upload your screenshot to a specific album using the --album flag
+
+```bash
+imgur-screen --album album_id
+```
