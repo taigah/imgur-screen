@@ -24,6 +24,6 @@ Create a credentials.js file and fill it with your credentials
 // credentials.js
 module.exports = {
 	"username": "foo",
-    "password": "bar"
+  "password": "bar"
 }
 ```
