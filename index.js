@@ -7,13 +7,30 @@ const exec = require('child_process').exec
 const opn = require('opn')
 const dialog = require('dialog')
 
+// Parsing arguments
+
+let album = null
+
+if (process.argv.includes('--album')) {
+  try {
+    let index = process.argv.indexOf('--album') + 1
+    album = process.argv[index]
+    if (album === undefined) {
+      throw new Error('Album id not provided')
+    }
+  } catch (err) {
+    dialog.err('Incorrect usage of --album\n Should be --album album_id')
+    process.exit()
+  }
+}
+
 function screen () {
   let cp = exec('xfce4-screenshooter -r -o cat', { encoding: 'base64' }, (err, stdout, stderr) => {
     if (err) {
       console.error(err.stack)
       process.exit()
     }
-    imgur.uploadBase64(stdout)
+    imgur.uploadBase64(stdout, album)
     .then((json) => {
       opn(json.data.link)
     })
