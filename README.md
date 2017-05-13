@@ -13,6 +13,7 @@ You just need to clone the repository and run index.js
 ```bash
 git clone https://github.com/taigah/imgur-screen
 cd imgur-screen
+npm i
 node index.js
 ```
 
