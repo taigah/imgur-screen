@@ -12,7 +12,7 @@ You just need to clone the repository and run index.js
 
 ```bash
 npm i -g imgur-screen
-imgur-screen
+imgur-screen [--album album_id] [--copy]
 ```
 
 # Using credentials
